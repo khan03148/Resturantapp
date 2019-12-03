@@ -1,19 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Navbar,NavbarBrand } from 'reactstrap';
+import Menu from './components/Menucomponent';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        
-          Learn React
-        </a>
-      </header>
+     <Navbar dark color="primary">
+       <div className="contianer">
+       <NavbarBrand href="/">
+         Ristorante con fusion
+       </NavbarBrand>
+
+       </div>
+     </Navbar>
+     <Menu/>
     </div>
   );
 }
