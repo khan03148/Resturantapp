@@ -1,38 +1,26 @@
-import React,{Component} from 'react';
+import React from 'react';
+
 import { Card,CardImgOverlay,CardImg,CardTitle,CardBody,CardText } from 'reactstrap';
 
-class DishDetail extends Component {
-   
-
-    componentDidMount(){
-        console.log("componentdid mount did mount called")
-    }
-
-    componentDidUpdate(){
-        console.log("didupdate called")
-    }
-   
-
-renderDish(d) {
+function RenderDish ({dish}){
       
         return(
             
             <div className="col-12 col-md-5 m-1">
                 <Card>
-                    <CardImg top  src={d.image} alt={d.name}/>
+                    <CardImg top  src={dish.image} alt={dish.name}/>
                     <CardBody> 
-                        <CardTitle>{d.name}</CardTitle>
-                        <CardText>{d.description}</CardText>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
                     </CardBody>
                     
                 </Card>
             </div>
         ); 
-      
-       
 }
 
-renderComments(comm) {
+
+function RenderComments ({comm}) {
              
 if(comm != null)
         return(
@@ -65,20 +53,20 @@ if(comm != null)
     }
 
     
-    render(){
-console.log("redner invoked here")
-        if(this.props.dish != null)
+    const DishDetail = (props) => {
+
+        if(props.dish != null)
         
         return(
             <div className="contianer">
                    
                   <div className="row">
                     
-                    {this.renderDish(this.props.dish)}
+                    <RenderDish dish={props.dish} />
                     
                    
                    
-                   {this.renderComments(this.props.dish.comments)}
+                   <RenderComments comm={props.dish.comments}/>
                </div>
             </div>
            
@@ -89,5 +77,5 @@ console.log("redner invoked here")
             <div></div>
         ); 
     }
-}
+
 export default DishDetail;
