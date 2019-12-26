@@ -10,9 +10,9 @@ class App extends Component {
   
     return (
     <BrowserRouter>
-        <div className="contianer">
+       
            <Main/>
-        </div>
+       
     </BrowserRouter>
     );
   };
