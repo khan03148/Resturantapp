@@ -1,3 +1,18 @@
+.imagee{
+    height: 250px;
+    width: 250px;
+}
+
+.imagee2{
+    height: 450px;
+    width: 450px;
+    border-radius: 50px;
+}
+
+
+.btn{
+    margin-right: 0%;
+}
 .row-header{
     margin:0px auto;
     padding:0px auto;
@@ -11,24 +26,51 @@
 }
 
 .footer{
-    background-color: #D1C4E9;
+    background-color:#182848;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
+    color: white;
 }
 .jumbotron {
     padding:70px 30px 70px 30px;
     margin:0px auto;
-    background: #9575CD ;
-    color:floralwhite;
+    background: #182848 ;
+    color: white;
 }
 
 address{
     font-size:80%;
     margin:0px;
-    color:#0f0f0f;
+    color:white;
 }
 
 .navbar-dark {
-    background-color: #512DA8;
+    background-color: #182848;
     
+}
+
+.page-enter {
+    opacity: 0.01;
+    transform: translateX(-100%);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 300ms ease-in;
+}
+
+.page-exit {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.page-exit-active {
+    opacity: 0.01;
+    transform: translateX(100%);
+    transition: all 300ms ease-out;
+}
+
+.clr{
+    color: black;
 }

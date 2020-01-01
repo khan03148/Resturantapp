@@ -1,12 +1,22 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Card,CardImgOverlay,CardImg,CardTitle,CardBody,CardText,BreadcrumbItem, Breadcrumb } from 'reactstrap';
+import { Card,CardImgOverlay,CardImg,CardTitle,CardBody,CardText,BreadcrumbItem, Breadcrumb ,Button} from 'reactstrap';
+import CommentForm from './commentform';
+import { Loading } from './LoadingComponent';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+
+
+
+
 
 function RenderDish ({dish}){
       
         return(
             
             <>
+            
+    <FadeTransform in transformProps={{
+         exitTransform: 'scale(0.5) translateY(-50%)'}}>
                 <Card>
                     <CardImg top  src={dish.image} alt={dish.name}/>
                     <CardBody> 
@@ -15,12 +25,12 @@ function RenderDish ({dish}){
                     </CardBody>
                     
                 </Card>
+     </FadeTransform>
             </>
         ); 
 }
 
-
-function RenderComments ({comments}) {
+const RenderComments =({comments, addComment, dishId})=> {
     
              
 if(comments != null)
@@ -29,23 +39,26 @@ if(comments != null)
 
         return(
             <>
+            <Stagger in>
               <h4>Comments</h4>
 
                <ul className="list-unstyled">
                     
                    {comments.map( (d) => {
                        return(
+                    <Fade in>   
                         <li key={d.id}>
                             <p>{d.comment}</p>
                             <p>--{d.author}, {d.date}</p>
+                            
                         </li>
-                            );
-                   
+                    </Fade> );
                    })}
-                        
-                    
-                    
+               
                 </ul>
+                </Stagger>
+                <CommentForm dishId={dishId} addComment={addComment} />
+
             </>
             );
 
@@ -60,11 +73,28 @@ if(comments != null)
     
 const DishDetail = (props) => {
    
-
-        if(props.dish != null)
+    if (props.isLoading) {
+        return(
+            <div className="container">
+                <div className="row">            
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if (props.errMess) {
+        return(
+            <div className="container">
+                <div className="row">            
+                    <h4>{props.errMess}</h4>
+                </div>
+            </div>
+        );
+    }
+    else if (props.dish != null) 
         
         return (
-            <div className="container">
+        <div className="container">
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
@@ -79,12 +109,21 @@ const DishDetail = (props) => {
             <div className="row">
                 <div className="col-12 col-md-5 m-1">
                     <RenderDish dish={props.dish} />
+                   
                 </div>
+                
                 <div className="col-12 col-md-5 m-1">
-                    <RenderComments comments={props.comments} />
+                <RenderComments comments={props.comments}
+                        addComment={props.addComment}
+                        dishId={props.dish.id} />
                 </div>
+                
+                
+
+               
+
             </div>
-            </div>
+        </div>
         );
         else
         return(

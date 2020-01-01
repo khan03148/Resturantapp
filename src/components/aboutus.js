@@ -17,13 +17,6 @@ const Renderpic = ({leader})=> {
 }
 
   
-  
-
-
-
-
-
-
 function About(props) {
 
     const leaders = props.leader.map((leader) => {
@@ -59,7 +52,7 @@ function About(props) {
                         <CardBody>
                             <dl className="row p-1">
                                 <dt className="col-6">Started</dt>
-                                <dd className="col-6">3 Feb. 2013</dd>
+                                <dd className="col-6">3 Feb. 2019</dd>
                                 <dt className="col-6">Major Stake Holder</dt>
                                 <dd className="col-6">HK Fine Foods Inc.</dd>
                                 <dt className="col-6">Last Year's Turnover</dt>
