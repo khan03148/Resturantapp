@@ -2,12 +2,13 @@
   "name": "mywebsite",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://khan03148.github.io/Resturantapp-confusion/"
   "dependencies": {
     "bootstrap": "^4.4.1",
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
     "gh-pages": "^2.1.1",
-    "homepage": "https://khan03148.github.io/Resturantapp-confusion/",
+    
     "prop-types": "^15.6.0",
     "react": "^16.12.0",
     "react-animation-components": "^3.0.0",
@@ -30,7 +31,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
