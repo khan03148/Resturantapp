@@ -13,7 +13,7 @@ class App extends Component {
   
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           
               <Main/>
           
