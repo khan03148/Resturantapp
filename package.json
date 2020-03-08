@@ -2,7 +2,7 @@
   "name": "mywebsite",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://khan03148.github.io/Resturantapp-confusion/",
+  "homepage": "https://khan03148.github.io/Resturantapp/",
   "dependencies": {
     "bootstrap": "^4.4.1",
     "bootstrap-social": "^5.1.1",
